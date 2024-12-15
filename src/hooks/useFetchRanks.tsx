@@ -7,15 +7,15 @@ const useFetchRanks = () => {
   const [error, setError] = useState<string | null>(null); // Error state
 
   const fetchRanks = useCallback(async () => {
-    setLoading(true); // Set loading to true while fetching
-    setError(null); // Clear any previous error
+    setLoading(true);
+    setError(null);
     try {
-      const data = await getRanks(); // Call the API function
-      setGifs(data); // Store the GIFs in state
+      const data = await getRanks();
+      setGifs(data);
     } catch (err) {
-      setError('Failed to fetch GIFs'); // Set an error message if the fetch fails
+      setError('Failed to fetch GIFs');
     } finally {
-      setLoading(false); // Set loading to false once fetching is done
+      setLoading(false);
     }
   }, []);
 

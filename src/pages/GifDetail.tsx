@@ -17,8 +17,8 @@ const GifDetails: React.FC = () => {
 
   useEffect(() => {
     if (id) {
-      setLoading(true); // Start loading
-      setError(null); // Reset error state
+      setLoading(true);
+      setError(null);
       selectGif(id)
         .then((data) => {
           setGifDetails(data);
@@ -28,7 +28,7 @@ const GifDetails: React.FC = () => {
           console.error(err);
         })
         .finally(() => {
-          setLoading(false); // Set loading to false after the request completes
+          setLoading(false);
         });
     }
   }, [id]);

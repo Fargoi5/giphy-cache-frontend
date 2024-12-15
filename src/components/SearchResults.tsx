@@ -14,13 +14,11 @@ const SearchResults: React.FC<SearchResultsProps> = ({ query }) => {
 
   useEffect(() => {
     if (query) {
-      fetchGifs(query); // Fetch GIFs when query changes
+      fetchGifs(query);
     }
-  }, [query, fetchGifs]); // Re-run effect when query changes
+  }, [query, fetchGifs]);
 
-  // Handle selecting a GIF and navigating to the GIF detail page
   const handleGifSelect = (gifId: string) => {
-    // navigate to the gifDetails page
     navigate(`/gif/${gifId}`);
   };
 
