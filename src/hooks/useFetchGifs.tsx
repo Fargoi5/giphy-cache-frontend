@@ -1,10 +1,10 @@
 import { useState, useCallback } from 'react';
-import { searchGifs } from '../services/gifApi'; // Import the API function
+import { searchGifs } from '../services/gifApi';
 
 const useFetchGifs = () => {
-  const [gifs, setGifs] = useState<any[]>([]); // Store GIF data
-  const [loading, setLoading] = useState<boolean>(false); // Loading state
-  const [error, setError] = useState<string | null>(null); // Error state
+  const [gifs, setGifs] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchGifs = useCallback(async (query: string) => {
     setLoading(true);

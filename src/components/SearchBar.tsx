@@ -23,8 +23,8 @@ import React, { useState } from 'react';
  * export default Example;
  */
 interface SearchBarProps {
-  onSearch: (query: string) => void; // Callback to trigger the search
-  placeholder?: string; // Optional placeholder text
+  onSearch: (query: string) => void;
+  placeholder?: string;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch, placeholder = 'Search for GIFs...' }) => {
