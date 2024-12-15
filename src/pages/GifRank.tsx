@@ -14,7 +14,6 @@ const SearchResults: React.FC<SearchResultsProps> = () => {
     fetchRanks();
   }, [fetchRanks]);
 
-  // Handle selecting a GIF and navigating to the GIF detail page
   const handleGifSelect = (gifId: string) => {
     // navigate to the gifDetails page
     navigate(`/gif/${gifId}`);
