@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { selectGif } from '../services/gifApi.ts'; // Assuming selectGif is exported from an api file
+import { selectGif } from '../services/gifApi.ts';
 
 interface GifDetails {
   id: string;
@@ -10,7 +10,7 @@ interface GifDetails {
 }
 
 const GifDetails: React.FC = () => {
-  const { id } = useParams<{ id: string }>(); // Get the ID from the URL
+  const { id } = useParams<{ id: string }>();
   const [gifDetails, setGifDetails] = useState<GifDetails | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);

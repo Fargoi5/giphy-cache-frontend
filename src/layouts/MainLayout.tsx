@@ -45,7 +45,6 @@ const MainLayout: React.FC = () => {
 
       {loading && <p style={{ marginTop: '16px' }}>Loading...</p>}
 
-      {/* Display search results if a query exists */}
       {query && <SearchResults query={query} />}
       <footer
         style={{
