@@ -49,9 +49,6 @@ const GifDetails: React.FC = () => {
     <div className="gif-details">
       <h1>{gifDetails.title}</h1>
       <img src={gifDetails.preview_url} alt={gifDetails.title} className="gif-image" />
-      <p>
-        <strong>GIF ID:</strong> {gifDetails.id}
-      </p>
     </div>
   );
 };

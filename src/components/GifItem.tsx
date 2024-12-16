@@ -5,6 +5,7 @@ interface GifItemProps {
   title: string;
   url: string;
   rank?: number;
+  gif_id?: string;
   onSelect?: (id: string) => void; // Optional callback for selection
 }
 
@@ -30,16 +31,21 @@ interface GifItemProps {
  *
  * export default Example;
  *
- * @param id
- * @param title
- * @param url
- * @param onSelect
+ * @param id the gif_id (or for rank records -> the rank id )
+ * @param title the title of the gif
+ * @param url the url to load the gif
+ * @param gif_id the id of the gif (for rank records)
+ * @param rank the rank of the gif (optional)
+ * @param onSelect callback for gif selection
  * @constructor
  */
-const GifItem: React.FC<GifItemProps> = ({ id, title, url, rank, onSelect }) => {
+const GifItem: React.FC<GifItemProps> = ({ id, title, url, gif_id, rank, onSelect }) => {
   const handleClick = () => {
-    if (onSelect) {
+    if (onSelect && !rank) {
       onSelect(id);
+    }
+    if (onSelect && rank && gif_id) {
+      onSelect(gif_id)
     }
   };
 
