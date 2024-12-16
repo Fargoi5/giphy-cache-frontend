@@ -1,16 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
 import useFetchGifs from '../hooks/useFetchGifs';
 import SearchResults from "../components/SearchResults.tsx";
 import { Link } from 'react-router-dom';
 
 const MainLayout: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [query, setQuery] = useState<string>('');
   const { loading, fetchGifs } = useFetchGifs();
+
+  // Parse the search query from the URL on initial load
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const initialQuery = searchParams.get('query');
+    if (initialQuery) {
+      setQuery(initialQuery);
+      fetchGifs(initialQuery);
+    }
+  }, [location.search, fetchGifs]);
 
   const handleSearch = (searchTerm: string) => {
     setQuery(searchTerm);
     fetchGifs(searchTerm);
+
+    // Update the URL with the new search query
+    navigate(`?query=${encodeURIComponent(searchTerm)}`, { replace: false });
   };
 
   return (

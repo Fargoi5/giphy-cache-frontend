@@ -1,15 +1,16 @@
 import React from 'react';
 import GifItem from './GifItem';
 
-interface Gif {
+interface GifRank {
   id: string;
+  gif_id: string;
   title: string;
   url: string;
   rank: number;
 }
 
 interface GifRankingsProps {
-  gifs: Gif[];
+  gifs: GifRank[];
   onGifSelect?: (id: string) => void;
 }
 
@@ -35,6 +36,7 @@ const GifRankings: React.FC<GifRankingsProps> = ({ gifs, onGifSelect }) => {
             title={gif.title}
             url={gif.url}
             rank={gif.rank}
+            gif_id={gif.gif_id}
             onSelect={onGifSelect}
           />
         </div>
